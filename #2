@@ -1,0 +1,23 @@
+def generate_fibonacci(n):
+    """
+    Генерує список чисел Фібоначчі до заданого числа n.
+    
+    Args:
+        n (int): Граничне значення для чисел Фібоначчі.
+        
+    Returns:
+        list: Список чисел Фібоначчі, менших або рівних n.
+    """
+    if n <= 0:
+        return []  # Повертаємо порожній список, якщо n <= 0
+    
+    fibonacci = [0, 1]
+    while fibonacci[-1] + fibonacci[-2] <= n:
+        fibonacci.append(fibonacci[-1] + fibonacci[-2])
+    
+    return fibonacci
+
+# Приклад використання:
+limit = int(input("Введіть число n: "))
+fibonacci_list = generate_fibonacci(limit)
+print(f"Числа Фібоначчі до {limit}: {fibonacci_list}")
