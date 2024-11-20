@@ -1,23 +1,23 @@
-def generate_fibonacci(n):
+def range_sum(start, end):
     """
-    Генерує список чисел Фібоначчі до заданого числа n.
+    Обчислює суму всіх чисел у заданому діапазоні [start, end].
     
     Args:
-        n (int): Граничне значення для чисел Фібоначчі.
-        
+        start (int): Початкове число діапазону.
+        end (int): Кінцеве число діапазону.
+    
     Returns:
-        list: Список чисел Фібоначчі, менших або рівних n.
+        int: Сума всіх чисел у діапазоні.
     """
-    if n <= 0:
-        return []  # Повертаємо порожній список, якщо n <= 0
-    
-    fibonacci = [0, 1]
-    while fibonacci[-1] + fibonacci[-2] <= n:
-        fibonacci.append(fibonacci[-1] + fibonacci[-2])
-    
-    return fibonacci
+    if start > end:
+        start, end = end, start  # Обмін значень, якщо початок більше кінця
+    return sum(range(start, end + 1))
 
 # Приклад використання:
-limit = int(input("Введіть число n: "))
-fibonacci_list = generate_fibonacci(limit)
-print(f"Числа Фібоначчі до {limit}: {fibonacci_list}")
+try:
+    start = int(input("Введіть початкове число діапазону: "))
+    end = int(input("Введіть кінцеве число діапазону: "))
+    total = range_sum(start, end)
+    print(f"Сума чисел у діапазоні від {start} до {end}: {total}")
+except ValueError:
+    print("Будь ласка, введіть коректні цілі числа.")
