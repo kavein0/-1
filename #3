@@ -1,0 +1,25 @@
+def most_frequent_number(numbers):
+    """
+    Знаходить число, яке зустрічається найчастіше у списку.
+    
+    Args:
+        numbers (list): Список чисел.
+        
+    Returns:
+        int: Число, яке зустрічається найчастіше.
+    """
+    if not numbers:
+        raise ValueError("Список не може бути порожнім.")
+    
+    frequency = {}
+    for num in numbers:
+        frequency[num] = frequency.get(num, 0) + 1
+    
+    # Знаходимо число з максимальною частотою
+    most_frequent = max(frequency, key=frequency.get)
+    return most_frequent
+
+# Приклад використання:
+numbers_list = [1, 2, 3, 2, 4, 2, 5, 1]
+result = most_frequent_number(numbers_list)
+print(f"Число, яке зустрічається найчастіше: {result}")
