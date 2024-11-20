@@ -1,0 +1,10 @@
+def to_binary(number):
+    
+    if not isinstance(number, int):
+        raise ValueError("Вхідне значення має бути цілим числом.")
+    return bin(number)[2:]  
+
+# Приклад використання:
+num = 42
+binary_representation = to_binary(num)
+print(f"Двійкове представлення числа {num}: {binary_representation}")
